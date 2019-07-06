@@ -1,0 +1,2 @@
+select COUNT(*) AS "60分券使用枚数" from tbl_barcode_read_history as h where RIGHT(LEFT(h.READ_CODE, 29), 4) in("6603","6604") and left(h.ENTRANT_DTE,7)= (SELECT DATE_FORMAT(adddate(CURDATE(),INTERVAL -1 MONTH),"%Y-%m")) and RIGHT(LEFT(h.READ_CODE, 21), 9) = "000000001";
+select COUNT(*) AS "120分券使用枚数" from tbl_barcode_read_history as h where RIGHT(LEFT(h.READ_CODE, 29), 4) in("6603","6604") and left(h.ENTRANT_DTE,7)= (SELECT DATE_FORMAT(adddate(CURDATE(),INTERVAL -1 MONTH),"%Y-%m")) and RIGHT(LEFT(h.READ_CODE, 21), 9) = "000000002";
